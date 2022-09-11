@@ -1,194 +1,91 @@
-<?php 
-// session_start();
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>profile</title>
-    <style>
-        table{
-            border-collapse: collapse;
-        }
-        table th{
-            background-color: blue;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="styl.css">
+    <title>validation</title>
 </head>
+
 <body>
+<?php
+
+// session_start();
+//     if(isset($_SESSION['status'])){
+//         echo "<h4>".$_SESSION['status']."</h4>";
+//         unset($_SESSION['status']);
+//     } ?>
     
-    <?php if (isset($_SESSION['msg'])) { ?>
-     		<p class="error"><?php echo $_SESSION['msg']; ?></p>
-     	<?php } ?>
-    
-      <label >user:</label>  <input type="text"  class="p"> <br>
-      <hr style="width: 20%; margin-left: 0px;">
-      <label>pwd:</label>  <input type="password" class="p1"/> <br>
-      <hr style="width: 20%; margin-left: 0px;">
-       <input type="submit" value="Connexion" class="login1" > <br>
-       <hr style="width: 20%; margin-left: 0px;">
-   
-    <div class="authenti">
+        
+            
+                Username<input type="text" name="username" placeholder="username*" class="username" > <br>
+                Password<input type="password" name="password" placeholder="password*" class="password" > <br>
+                Sexe*: Masculin<input type="radio" name="gendre"value="Masculin" class="masculin"> Feminin<input type="radio" name="gendre" value="feminin" class="feminin"> <br>
+                email*: <input type="email" name="email" placeholder="Email*" class="email" > <br>
+                Statut*: <select name="statut" class="statut" > <br>
+                    <option value="Celibataire" >Celibataire</option>
+                    <option value="Marie(e)">Marie(e)</option>
+                    <option value="Divorce(e)">Divorce(e)</option>
+                    <option value="Veuf(ve)">Veuf(ve)</option>
+                </select> <br>
+                Telephone*: <input type="text" name="telephone" placeholder="Numero de Telephone*" class="telephone" > <br>
+                Date de naissance*: <input type="date" name="date" placeholder="Date de naissance*" class="Datedenaissance"> <br>
+            
+             <input type="submit" name="data" value="submit" class="data">
 
-    </div> <br> <br>
-    <form action="information_user.php" method="POST" class="para">
-
-    Historique des utilisateurs <button type="submit" name="historiques" class="z">Voir</button>
-    <a href="inscription\index.php">S'inscrire de nouveau</a>
-    </form>
-   
-    
-        <!-- <table border="1" cellpadding="5" cellspacing="10" width="20%">
-            <br> <br>
-        <tr>   
-        <th> Username </th> 
-        <th> login  </th>
-        <th> password </th>
-        <th>Date de connection</th>  
-        </tr>
-            <tr>
-                
-                <td>Soulemane Mahamat Saleh</td>
-                <td>sms</td>
-                <td>123</td>
-                <td>Aujourd'hui 17h:20</td>
-
-            </tr>
-            <tr>
-                
-                <td>Admin Admin</td>
-                <td>Admin</td>
-                <td>abc</td>
-                <td>hier 11h:43</td>
-
-            </tr>
-        </table>  -->
-    <script src="jquery-3.6.0.js"></script>
-    <script>
+             <div class="info"></div>
+            
         
 
-        $(document).ready(function(){
-            $('.login1').click(function(e){
-               e.preventDefault();
-
-             
-             var username = $('.p').val();
-             var password = $('.p1').val();
-            // alert(password);
-             $('.authenti').load('server.php',{
-                username: username,
-                password: password
-                
-            
-        
-             }
-
-             );
-              
-            //   $('.authenti').load('server.php',
-                
-            //     Username: $('.p').val(),
-            //     Password: $('.p1').val()
-              
-            //   ); 
-              
-            
-            });
-        });
-        
-
-    //     $(".login1").click(function() {
-    //     //in here we can do the ajax after validating the field isn't empty.
-    //     if($(".p").val()!="") {
-    //         $.ajax({
-    //             url: "server.php",
-    //             type: "POST",
-    //             async: true, 
-    //             data: { Username:$(".p").val(),Password:$(".p").val() }, //your form data to post goes here as a json object
-    //             dataType: "html",
-
-    //             success: function(data) {
-    //                 $('.authenti').html(data);    
-    //             },  
-    //         });
-    //     } else {
-    //         //notify the user they need to enter data
-    //     }
-    // });
-
-
-
-        $(document).ready(function(){
-            $('.z').click(function(e){
-              e.preventDefault();
-            
-        });
-    });
-        // $(document).ready(function(){
-        //     $('input[name="login"]').click(function(e){
-        //         $('input[name="login"]').hide();
-                
-        //         e.preventDefault();
-        //     });
-                
-            
-            
-        //     });
-
-            
-            // $(document).ready(function(){
-            // $('.para').click(function(e){
-            //     e.preventDefault();
-            //     $('input[name="login"]').show();
-                
-            // });
-                
-            
-            
-            // });
-
-            // $(document).ready(function()
-            // {    $("#submit").click(function{
-            //      $.post('connexion.php', // Un script PHP que l'on va créer juste après            
-            //      { login : $("#username").val();  
-            //       // Nous récupérons la valeur de nos inputs que l'on fait passer à connexion.php           
-            //        password : $("#password").val();            
-            //         }, function(data){ // Cette fonction ne fait rien encore, nous la mettrons à jour plus tard           
-            //          }, 'text' // Nous souhaitons recevoir "Success" ou "Failed", donc on indique text !         
-            //          );   
-            //          }); 
-            //         }); 
-            
-            // <script>
+        <script src="jquery-3.6.0.js"></script>
+        <script >
             $(document).ready(function(){
-                $('.p1').click(function(e){
+                
+                $('.data').click(function(e){
                     e.preventDefault();
-                    $.post('server.php'),{
-                        login: $(".p1").val(),
-                        password: $(".p1").val()
-                    }
+                    
+                    var username = $('.username').val();
+                    var password = $('.password').val();
+                    var gendre = $('input[name=gendre]:checked').val();
+                    // var feminin = $('input[name=feminin]:checked').val();
+                    var email = $('.email').val();
+                    var statut = $('.statut option:selected').val();
+                    var telephone = $('.telephone').val();
+                    var Datedenaissance = $('.Datedenaissance').val();
+                    // alert((input[type="submit"]));
+                    alert(gendre);
+                    // var result;
+                    // if(username==""){
+                    //     $('.username').css('border-color,#ff0000');
+                    //     result =false;
 
+                    //     return result;
+                    // }
+                    
+
+
+                    $('.info').load('traitement.php',{
+                        username: username,
+                        password: password,
+                        gendre:gendre,
+                        email:email,
+                        statut:statut,
+                        telephone:telephone,
+                        Datedenaissance:Datedenaissance
+                   
+
+
+                    });
+                   
                 });
             });
+            
+        </script>
 
-            //     });
+    </body>
 
+</html>
 
-
-            // // });
-            // $(document).ready(function(){
-            //     $('#p1').load("server.php"),{
-            //         login : $("login").val(),    
-            //         password : $("password").val()
-            //     }
-            // });
-            </script>
-    
-</body>
 </html>
